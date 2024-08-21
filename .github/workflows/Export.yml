@@ -76,3 +76,9 @@ jobs:
         solution-target-folder: ${{ github.event.inputs.solution_target_folder}}/${{ github.event.inputs.solution_name }}
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         allow-empty-commit: true
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-output
+        path: ${{ github.event.inputs.solution_exported_folder}}/${{ github.event.inputs.solution_name }}.zip
